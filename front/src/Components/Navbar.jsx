@@ -39,6 +39,18 @@ function Navbar({ }) {
         }
     }, [isOpen, user]);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (isOpen && !event.target.closest('.relative')) {
+                toggleDropdown();
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen, toggleDropdown]);
+
     // Update or reset Password
     const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
     const onSubmit = async (e) => {
@@ -63,7 +75,7 @@ function Navbar({ }) {
             console.error(err);
         }
     };
-    
+
     return (
         <div>
             <nav className="bg-white text-black font-bold shadow-lg p-4 flex justify-between items-center flex-wrap">
@@ -124,7 +136,7 @@ function Navbar({ }) {
                                     </div>
                                     <div className="px-4">
                                         <button  type='submit' className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded focus:outline-none">
-                                            Reset or Update User Password
+                                            Update Password
                                         </button>
                                     </div>
                                 </form>
