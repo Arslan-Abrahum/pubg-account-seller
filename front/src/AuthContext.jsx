@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
                         }
                     });
                     setUser(response.data);
-                    console.log('User data: ', response);
                 }
             } catch (error) {
                 console.error(error);
@@ -34,8 +33,6 @@ export const AuthProvider = ({ children }) => {
     const signup = async (formData) => {
         try {
             const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
-            const ee = response.data;
-            console.log("resposn", ee);
             localStorage.setItem('token', token);
             setUser(response.data);
         } catch (error) {

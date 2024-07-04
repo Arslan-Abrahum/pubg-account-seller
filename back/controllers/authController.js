@@ -1,8 +1,6 @@
-// controllers/authController.js
 const jwt = require('jsonwebtoken');
 const User = require('../modals/User');
 const bcrypt = require('bcryptjs');
-
 
 const JWT_SECRET = process.env.JWT_SECRET || 'my_pubg_web';
 const JWT_EXPIRES_IN = '5h';
@@ -11,9 +9,6 @@ exports.signup = async (req, res) => {
     try {
         const { username, password } = req.body;
         const userCount = await User.countDocuments();
-        // console.log(User.countDocuments());
-        console.log(username, password);
-        console.log(userCount);
         if (userCount > 1) {
             return res.status(400).json({ message: 'A user already exists' });
         }
@@ -29,14 +24,10 @@ exports.signup = async (req, res) => {
     }
 };
 
-
 exports.login = async (req, res) => {
     try {
         const { username, password } = req.body;
         const user = await User.findOne({ username });
-
-        console.log(user, username, password);
-
         if (!user) {
             return res.status(400).json({ message: 'Invalid credentials for username' });
         }
@@ -63,7 +54,6 @@ exports.getMe = async (req, res) => {
 exports.getAuth = async (req, res) => {
     try {
         const user = await User.find();
-        console.log(user);
         res.json(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -84,7 +74,6 @@ exports.deleteAuth = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     const userId = req.user.userId; // Assuming req.user is set after token verification
-    console.log(userId, 'idd');
     const { username, password } = req.body;
 
     try {
@@ -96,9 +85,6 @@ exports.updateUser = async (req, res) => {
             const salt = await bcrypt.genSalt(10);
             updateFields.password = await bcrypt.hash(password, salt);
         }
-
-        console.log(updateFields, 'updateFields');
-
         const updatedUser = await User.findByIdAndUpdate(
             userId,
             { $set: updateFields },

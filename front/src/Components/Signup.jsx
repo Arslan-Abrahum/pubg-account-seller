@@ -2,16 +2,12 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { AuthContext } from '../AuthContext';
 import {Link} from "react-router-dom"
-
 const Signup = () => { 
     const { signup } = useContext(AuthContext); 
     const [formData, setFormData] = useState({ username: '', password: '' }); 
     const navigate = useNavigate();
-
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-
     const onSubmit = async e => {
-    
         e.preventDefault();
         try {
             await signup(formData);

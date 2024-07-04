@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from './Components/Navbar';
 import Cards from './Components/Cards';
 import Footer from './Components/Footer';
@@ -8,7 +8,6 @@ function Home() {
   return (
     <div className='bg-white'>
       <Navbar   />
-
       <div className="h-[92vh] w-[100%] bg-image m-auto">
         <div className="flex flex-col justify-center items-center h-[100%] w-[100%]">
           <h1 className="text-6xl text-white font-bold uppercase">Gujjar pubg account seller</h1>
@@ -22,7 +21,6 @@ function Home() {
         <h1 className="text-2xl font-bold text-gray-900 mb-4 uppercase">All Carding Accounts</h1>
         <h2 className="text-xl text-gray-700 font-semibold uppercase">PUBG Accounts</h2>
       </div>
-
       <Cards  />
       <Footer />
     </div>

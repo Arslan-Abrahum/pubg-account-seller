@@ -17,13 +17,9 @@ const AppProvider = ({ children }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
-  
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  
- 
-
   useEffect(() => {
     const fetchPosts = async () => {
       const token = localStorage.getItem('token');
@@ -143,7 +139,6 @@ const AppProvider = ({ children }) => {
 const toggleDropdown = () => {
   setIsOpen(!isOpen);
 };
-
 
   return (
     <AppContext.Provider

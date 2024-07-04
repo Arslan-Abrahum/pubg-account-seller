@@ -7,9 +7,7 @@ function Details() {
   const navigate = useNavigate()
   const {
     selectedCard,
-    setSelectedCard,
     editMode,
-    setLoading,
     closeDetails,
     deletePost,
     handleInp,
@@ -18,8 +16,6 @@ function Details() {
 
   useEffect(() => {
     if (!selectedCard) {
-      // Handle the case where selectedCard is null, e.g., redirect to home page
-      console.log('No selected card found.');
       // Navigate to home or show a message
       setTimeout(()=> {
         navigate('/')

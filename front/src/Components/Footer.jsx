@@ -3,7 +3,6 @@ import React from 'react'
 function Footer() {
     return (
         <div>
-
             <footer className="footer h-[20vh] w-full bg-gray-900 text-white py-8 mt-auto">
                 <div className="container h-full flex flex-col justify-around items-center mx-auto text-center">
                     <h1 className="text-3xl mb-2 font-bold uppercase">World Best PUBG Account</h1>
@@ -11,7 +10,6 @@ function Footer() {
                     <h3 className="text-xl ">Carding Account Available</h3>
                 </div>
             </footer>
-
         </div>
     )
 }

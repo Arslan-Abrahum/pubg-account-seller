@@ -4,7 +4,6 @@ const posts = require('./routes/posts');
 const auth = require('./routes/auth');
 const cors = require('cors');
 require('dotenv').config();
-
 const app = express();
 
 // Middleware
@@ -19,7 +18,6 @@ mongoose.connect(process.env.MONGO_URI, {
     .catch(err => console.log('MongoDB connection error:', err));
 
 // Routes
-
 app.use('/api/posts', posts);
 app.use('/api/auth', auth);
 // Error Handling Middleware

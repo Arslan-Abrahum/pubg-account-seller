@@ -53,9 +53,7 @@ function Navbar({ }) {
                         Authorization: `Bearer ${token}`,
                     },
                 }
-            );
-
-            
+            );            
             setFeedback('User updated successfully');
             setFormData({ username: '', password: '' });
             setIsOpen(false)
@@ -65,9 +63,7 @@ function Navbar({ }) {
             console.error(err);
         }
     };
-
-
-
+    
     return (
         <div>
             <nav className="bg-white text-black font-bold shadow-lg p-4 flex justify-between items-center flex-wrap">
