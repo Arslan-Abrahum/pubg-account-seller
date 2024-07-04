@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+
+.bg-image {
+    background-image: url("./assets/Picsart_24-06-26_14-03-05-663.jpg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.024) , rgba(0, 0, 0) 90%), url("./assets/Picsart_24-06-26_14-03-05-663.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cur {
+    cursor: pointer;
+}
+.custom-shadow {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-shadow:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+.text-shadow-custom {
+    text-shadow: 0 0 3px rgba(255, 165, 0, 0.5),  /* gold */
+    0 0 5px rgba(255, 165, 0, 0.5),
+    0 0 7px rgba(255, 69, 0, 0.5),  /* red */
+    0 0 10px rgba(255, 69, 0, 0.5);
+  }
+  .img {
+    height: 100%;
+    width: 100%;
+  }
